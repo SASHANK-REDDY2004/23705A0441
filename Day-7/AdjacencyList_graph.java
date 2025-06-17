@@ -42,7 +42,7 @@ public ArrayList<Integer> neighbours(int node) {
 }
 boolean ishavingEdge(int src,int dest) {
 	if(isValid(src,dest)) {
-		var arr=graph.get(src);
+		ArrayList<Integer> arr=graph.get(src);
 		for(int i=0; i<arr.size(); i++) {
 			if(arr.get(i)==dest) {
 				return true;

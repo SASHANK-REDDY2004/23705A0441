@@ -6,6 +6,7 @@ public class EdgeList_graph {
 		g.addEdge(1,0);
 		g.addEdge(2,3);
 		g.addEdge(2,0);
+		g.printGraph();
 
 	}
 }
@@ -60,9 +61,9 @@ class Graph {
 	}
 	public void removeEdge(int src,int dest) {
 		if(isValid(src,dest)) {
-			graph.remove(src,dest);
+			graph.get(src).remove(dest);
 			if(!isDirected){
-			    graph.remove(dest,src);
+			    graph.remove(dest);
 			}
 		}
 		System.out.println("Invalid src and destination");

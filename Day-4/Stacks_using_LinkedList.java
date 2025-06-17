@@ -5,9 +5,11 @@ public class Stacks_using_LinkedList {
         l1.push(30);
         l1.push(40);
         l1.print();
-        System.out.println(l1.pop());
+
+        System.out.println("Popped: " + l1.pop());
         l1.print();
-        System.err.println(l1.peak());
+
+        System.err.println("Peek: " + l1.peek());
     }
 }
 
@@ -25,31 +27,40 @@ class Stack {
     Node top;
 
     Stack() {
-        this.top = null; 
+        this.top = null;
     }
 
     boolean isEmpty() {
-        return top == null; 
+        return top == null;
     }
 
     void push(int data) {
         Node newNode = new Node(data);
         newNode.next = top;
-        top = newNode; 
+        top = newNode;
     }
-    int pop(){
-        if(isEmpty()) return -1;
-        int removedEle=top.data;
-        top=top.next;
-        return removedEle;
-    }
-    int peak(){
-        int removedEle=top.data;
+
+    int pop() {
+        if (isEmpty()) {
+            System.err.println("Stack is empty, cannot pop");
+            return -1; // Or throw exception
+        }
+        int removedEle = top.data;
+        top = top.next;
         return removedEle;
     }
 
+    int peek() {
+        if (isEmpty()) {
+            System.err.println("Stack is empty, cannot peek");
+            return -1; // Or throw exception
+        }
+        return top.data;
+    }
+
     void print() {
-        Node temp = top; 
+        Node temp = top;
+        System.out.print("Stack elements (top to bottom): ");
         while (temp != null) {
             System.out.print(temp.data + " ");
             temp = temp.next;
